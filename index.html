@@ -1,0 +1,122 @@
+document.write(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+        }
+
+        .title {
+            font-size: 2rem;
+            background: linear-gradient(to right, #8a2be2, #9370db, #00bfff);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form input {
+            background-color: #333;
+            border: none;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .login-form input::placeholder {
+            color: #ccc;
+        }
+
+        button {
+            background-color: #8a2be2;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #9370db;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        #shrek-image {
+            margin-top: 20px;
+            display: none;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="title">Login</h2>
+        <form class="login-form" id="loginForm">
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <p class="error-message" id="errorMessage">Usuário ou senha incorretos</p>
+        <img id="shrek-image" src="https://upload.wikimedia.org/wikipedia/pt/a/ac/Shrek2.jpg" alt="Shrek">
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const shrekImage = document.getElementById('shrek-image');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'Henrique' && password === 'Maxwell') {
+                errorMessage.style.display = 'none';
+                shrekImage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'block';
+                shrekImage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+`);
