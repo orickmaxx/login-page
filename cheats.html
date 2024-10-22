@@ -29,25 +29,84 @@
             position: relative;
         }
 
+        /* Animação do gradiente para o título */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .title {
             font-size: 3rem;
             background: linear-gradient(to right, #8a2be2, #9370db, #00bfff);
+            background-size: 400% 400%; /* Tamanho do background para animação */
             -webkit-background-clip: text;
             color: transparent;
+            animation: gradientAnimation 5s ease infinite; /* Animação do título */
         }
 
         .divider {
             height: 2px; /* Espessura da linha */
-            background-color: #8a2be2; /* Cor da linha */
             margin-top: 10px; /* Espaço acima da linha */
             margin-bottom: 30px; /* Espaço abaixo da linha */
+            background: linear-gradient(to right, #8a2be2, #9370db, #00bfff);
+            background-size: 400% 400%; /* Tamanho do background para animação */
+            animation: gradientAnimation 5s ease infinite; /* Animação da linha */
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            background: linear-gradient(270deg, #8a2be2, #9370db, #00bfff);
+            background-size: 400% 400%; /* Tamanho do background para animação */
+            -webkit-background-clip: text;
+            color: transparent;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 5px;
+            transition: color 0.3s;
+            position: relative;
+            overflow: hidden;
+            animation: gradientAnimation 5s ease infinite; /* Animação das guias de navegação */
+        }
+
+        .nav a:hover {
+            color: white; /* Muda a cor do texto ao passar o mouse */
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(138, 43, 226, 0.6); /* Cor do overlay */
+            opacity: 0; /* Inicia invisível */
+            transition: opacity 0.3s;
+            z-index: 0; /* Coloca o overlay atrás do texto */
+        }
+
+        .nav a:hover::after {
+            opacity: 1; /* Torna o overlay visível ao passar o mouse */
         }
 
         .content {
             display: flex;
             justify-content: center;
             align-items: flex-start; /* Alinha ao topo */
-            height: calc(100vh - 100px); /* Altura total menos altura do cabeçalho */
+            height: calc(100vh - 200px); /* Altura total menos altura do cabeçalho e navegação */
             padding: 20px;
         }
 
@@ -102,12 +161,33 @@
         <h1 class="title">CHEATS DO RICK</h1>
         <div class="divider"></div>
     </div>
+    <div class="nav">
+        <a href="#khanware-pago">KHANWARE (PAGO)</a>
+        <a href="#khanware-bypass">KHANWARE (BYPASS)</a>
+        <a href="#cms">CMSP</a>
+        <a href="#speak">SPEAK</a>
+    </div>
     <div class="content">
-        <div class="bookmarklet">
-            <h3><span style="color: white;">KHAN</span><span style="background: linear-gradient(to right, #8a2be2, #9370db, #00bfff); -webkit-background-clip: text; color: transparent;">WHARE</span> (PAGO)</h3>
+        <div class="bookmarklet" id="khanware-pago">
+            <h3><span style="color: white;">KHAN</span><span style="color: #00FF00;">WHARE</span> (PAGO)</h3>
             <p>Este é um serviço pago. Clique abaixo para acessar.</p>
             <a href="javascript:void(0);" class="button" id="copyButton">Copiar Bookmarklet</a>
             <p id="successMessage" class="message">Bookmarklet copiado para a área de transferência!</p>
+        </div>
+
+        <div class="bookmarklet" id="khanware-bypass" style="display: none;">
+            <h3>KHANWARE (BYPASS)</h3>
+            <p>Conteúdo do KHANWARE (BYPASS) aqui.</p>
+        </div>
+
+        <div class="bookmarklet" id="cms" style="display: none;">
+            <h3>CMSP</h3>
+            <p>Conteúdo do CMSP aqui.</p>
+        </div>
+
+        <div class="bookmarklet" id="speak" style="display: none;">
+            <h3>SPEAK</h3>
+            <p>Conteúdo do SPEAK aqui.</p>
         </div>
     </div>
 
@@ -125,6 +205,25 @@
                 }, 3000);
             }).catch(err => {
                 console.error('Falha ao copiar: ', err);
+            });
+        });
+
+        // Função para alternar a visibilidade das seções
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1); // Remove o "#" do início
+
+                // Esconde todas as seções
+                document.querySelectorAll('.bookmarklet').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Mostra a seção correspondente
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                }
             });
         });
     </script>
