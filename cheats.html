@@ -29,7 +29,6 @@
             position: relative;
         }
 
-        /* Animação do gradiente para o título */
         @keyframes gradientAnimation {
             0% {
                 background-position: 0% 50%;
@@ -45,19 +44,19 @@
         .title {
             font-size: 3rem;
             background: linear-gradient(to right, #8a2be2, #9370db, #00bfff);
-            background-size: 400% 400%; /* Tamanho do background para animação */
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             color: transparent;
-            animation: gradientAnimation 5s ease infinite; /* Animação do título */
+            animation: gradientAnimation 5s ease infinite;
         }
 
         .divider {
-            height: 2px; /* Espessura da linha */
-            margin-top: 10px; /* Espaço acima da linha */
-            margin-bottom: 30px; /* Espaço abaixo da linha */
+            height: 2px;
+            margin-top: 10px;
+            margin-bottom: 30px;
             background: linear-gradient(to right, #8a2be2, #9370db, #00bfff);
-            background-size: 400% 400%; /* Tamanho do background para animação */
-            animation: gradientAnimation 5s ease infinite; /* Animação da linha */
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s ease infinite;
         }
 
         .nav {
@@ -68,7 +67,7 @@
 
         .nav a {
             background: linear-gradient(270deg, #8a2be2, #9370db, #00bfff);
-            background-size: 400% 400%; /* Tamanho do background para animação */
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             color: transparent;
             padding: 10px 20px;
@@ -78,11 +77,11 @@
             transition: color 0.3s;
             position: relative;
             overflow: hidden;
-            animation: gradientAnimation 5s ease infinite; /* Animação das guias de navegação */
+            animation: gradientAnimation 5s ease infinite;
         }
 
         .nav a:hover {
-            color: white; /* Muda a cor do texto ao passar o mouse */
+            color: white;
         }
 
         .nav a::after {
@@ -92,21 +91,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(138, 43, 226, 0.6); /* Cor do overlay */
-            opacity: 0; /* Inicia invisível */
+            background-color: rgba(138, 43, 226, 0.6);
+            opacity: 0;
             transition: opacity 0.3s;
-            z-index: 0; /* Coloca o overlay atrás do texto */
+            z-index: 0;
         }
 
         .nav a:hover::after {
-            opacity: 1; /* Torna o overlay visível ao passar o mouse */
+            opacity: 1;
         }
 
         .content {
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinha ao topo */
-            height: calc(100vh - 200px); /* Altura total menos altura do cabeçalho e navegação */
+            align-items: flex-start;
+            height: calc(100vh - 200px);
             padding: 20px;
         }
 
@@ -116,13 +115,16 @@
             border-radius: 6px;
             padding: 15px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-            width: 300px; /* Largura do card */
-            text-align: left; /* Alinhamento do texto */
+            width: 280px; /* Largura ajustada */
+            text-align: left;
             transition: background-color 0.3s;
+            margin: 10px; /* Espaço entre os bookmarklets */
+            min-height: 150px; /* Altura mínima para as caixas */
+            overflow: hidden; /* Para evitar que o conteúdo exceda */
         }
 
         .bookmarklet:hover {
-            background-color: #3a3a3a; /* Muda a cor ao passar o mouse */
+            background-color: #3a3a3a;
         }
 
         .bookmarklet h3 {
@@ -151,8 +153,19 @@
 
         .message {
             margin-top: 10px;
-            color: #8bc34a; /* Cor da mensagem de sucesso */
-            display: none; /* Oculta por padrão */
+            color: #8bc34a;
+            display: none;
+        }
+
+        .section {
+            display: none; /* Inicialmente oculta */
+            width: 100%; /* Para ocupar toda a largura disponível */
+            max-width: 320px; /* Largura máxima para manter o design */
+            margin: 0 auto; /* Centraliza as seções */
+        }
+
+        .active {
+            display: block; /* Mostra a seção ativa */
         }
     </style>
 </head>
@@ -162,68 +175,119 @@
         <div class="divider"></div>
     </div>
     <div class="nav">
-        <a href="#khanware-pago">KHANWARE (PAGO)</a>
-        <a href="#khanware-bypass">KHANWARE (BYPASS)</a>
-        <a href="#cms">CMSP</a>
-        <a href="#speak">SPEAK</a>
+        <a href="#khanware-pago" class="nav-link" data-target="khanware-pago">KHANWARE (PAGO)</a>
+        <a href="#khanware-bypass" class="nav-link" data-target="khanware-bypass">KHANWARE (BYPASS)</a>
+        <a href="#cms" class="nav-link" data-target="cms">CMSP</a>
+        <a href="#speak" class="nav-link" data-target="speak">SPEAK</a>
     </div>
     <div class="content">
-        <div class="bookmarklet" id="khanware-pago">
+        <div class="bookmarklet section active" id="khanware-pago">
             <h3><span style="color: white;">KHAN</span><span style="color: #00FF00;">WHARE</span> (PAGO)</h3>
             <p>Este é um serviço pago. Clique abaixo para acessar.</p>
-            <a href="javascript:void(0);" class="button" id="copyButton">Copiar Bookmarklet</a>
-            <p id="successMessage" class="message">Bookmarklet copiado para a área de transferência!</p>
+            <a href="javascript:void(0);" class="button" id="copyButtonPago">Copiar Bookmarklet</a>
+            <p id="successMessagePago" class="message">Bookmarklet copiado para a área de transferência!</p>
         </div>
 
-        <div class="bookmarklet" id="khanware-bypass" style="display: none;">
-            <h3>KHANWARE (BYPASS)</h3>
-            <p>Conteúdo do KHANWARE (BYPASS) aqui.</p>
+        <div class="bookmarklet section" id="khanware-bypass">
+            <h3><span style="color: white;">KHAN</span><span style="color: red;">WARE</span> (BYPASS)</h3>
+            <p>Escolha um bookmarklet para usar:</p>
+            <div class="bookmarklet" style="margin-top: 10px;">
+                <h4>KhanWare 2.9</h4>
+                <p>Copie este bookmarklet para acessar a versão 2.9.</p>
+                <a href="javascript:void(0);" class="button" id="copyButtonKhanWare">Copiar Bookmarklet</a>
+                <p id="successMessageKhanWare" class="message">Bookmarklet copiado para a área de transferência!</p>
+            </div>
+            <div class="bookmarklet" style="margin-top: 10px;">
+                <h4>Bypass</h4>
+                <p>Copie este bookmarklet para o bypass.</p>
+                <a href="javascript:void(0);" class="button" id="copyButtonBypass">Copiar Bookmarklet</a>
+                <p id="successMessageBypass" class="message">Bookmarklet copiado para a área de transferência!</p>
+            </div>
         </div>
 
-        <div class="bookmarklet" id="cms" style="display: none;">
+        <div class="bookmarklet section" id="cms">
             <h3>CMSP</h3>
-            <p>Conteúdo do CMSP aqui.</p>
+            <p>Para acessar o CHEAT do CMSP, clique no botão abaixo:</p>
+            <a href="https://cmspcheeto.squareweb.app/" target="_blank" class="button">Acessar CMSP</a>
         </div>
 
-        <div class="bookmarklet" id="speak" style="display: none;">
-            <h3>SPEAK</h3>
+        <div class="bookmarklet section" id="speak">
+            <h3>SPEAK (EM BREVE)</h3>
             <p>Conteúdo do SPEAK aqui.</p>
         </div>
     </div>
 
     <script>
-        const copyButton = document.getElementById('copyButton');
-        const successMessage = document.getElementById('successMessage');
+        // Função para mostrar a seção correta ao clicar nas guias
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
 
-        copyButton.addEventListener('click', () => {
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('data-target');
+
+                // Oculta todas as seções
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Mostra a seção correspondente
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+
+        // Copiar bookmarklet para KHANWARE (PAGO)
+        const copyButtonPago = document.getElementById('copyButtonPago');
+        const successMessagePago = document.getElementById('successMessagePago');
+
+        copyButtonPago.addEventListener('click', () => {
             const bookmarkletCode = 'javascript:fetch("https://proxy.khanware.space/estrogen.productions/p/raw/z6dwi4dw03").then(t=>t.text()).then(eval);';
 
             navigator.clipboard.writeText(bookmarkletCode).then(() => {
-                successMessage.style.display = 'block'; // Mostra a mensagem de sucesso
+                successMessagePago.style.display = 'block';
                 setTimeout(() => {
-                    successMessage.style.display = 'none'; // Oculta a mensagem após 3 segundos
+                    successMessagePago.style.display = 'none';
                 }, 3000);
             }).catch(err => {
                 console.error('Falha ao copiar: ', err);
             });
         });
 
-        // Função para alternar a visibilidade das seções
-        document.querySelectorAll('.nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = e.target.getAttribute('href').substring(1); // Remove o "#" do início
+        // Copiar bookmarklet para KHANWARE 2.9
+        const copyButtonKhanWare = document.getElementById('copyButtonKhanWare');
+        const successMessageKhanWare = document.getElementById('successMessageKhanWare');
 
-                // Esconde todas as seções
-                document.querySelectorAll('.bookmarklet').forEach(section => {
-                    section.style.display = 'none';
-                });
+        copyButtonKhanWare.addEventListener('click', () => {
+            const bookmarkletCode = 'SEU_JAVASCRIPT_AQUI';  // <<=== Cole seu código aqui
 
-                // Mostra a seção correspondente
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.style.display = 'block';
-                }
+            navigator.clipboard.writeText(bookmarkletCode).then(() => {
+                successMessageKhanWare.style.display = 'block';  // Mostra a mensagem de sucesso
+                setTimeout(() => {
+                    successMessageKhanWare.style.display = 'none';  // Oculta a mensagem de sucesso após 3 segundos
+                }, 3000);
+            }).catch(err => {
+                console.error('Falha ao copiar: ', err);
+            });
+        });
+
+        // Copiar bookmarklet para Bypass
+        const copyButtonBypass = document.getElementById('copyButtonBypass');
+        const successMessageBypass = document.getElementById('successMessageBypass');
+
+        copyButtonBypass.addEventListener('click', () => {
+            const bookmarkletCode = 'javascript:void%20function(){(function(){%22undefined%22==typeof%20originalFetch%26%26(window.originalFetch=window.fetch),window.username=prompt(%22Please%20enter%20your%20username:%22),window.fetch=async%20function(a,b={}){const%20c=await%20window.originalFetch(a,b);let%20d=c.clone(),e=await%20d.text();if(console.log(d.url,e),c.url.includes(%22proxy.khanware.space%22)){const%20a=c.clone(),b=await%20a.text(),d=b+%22\n%40%22+window.username;return%20new%20Response(d,{status:a.status,statusText:a.statusText,headers:a.headers})}return%20c}})()}();';
+
+            navigator.clipboard.writeText(bookmarkletCode).then(() => {
+                successMessageBypass.style.display = 'block';
+                setTimeout(() => {
+                    successMessageBypass.style.display = 'none';
+                }, 3000);
+            }).catch(err => {
+                console.error('Falha ao copiar: ', err);
             });
         });
     </script>
