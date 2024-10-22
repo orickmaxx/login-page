@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEATS DO RICK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: white;
+        }
+
+        .header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3rem;
+            background: linear-gradient(to right, #8a2be2, #9370db, #00bfff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .divider {
+            height: 2px; /* Espessura da linha */
+            background-color: #8a2be2; /* Cor da linha */
+            margin-top: 10px; /* Espaço acima da linha */
+            margin-bottom: 30px; /* Espaço abaixo da linha */
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinha ao topo */
+            height: calc(100vh - 100px); /* Altura total menos altura do cabeçalho */
+            padding: 20px;
+        }
+
+        .bookmarklet {
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            width: 300px; /* Largura do card */
+            text-align: left; /* Alinhamento do texto */
+            transition: background-color 0.3s;
+        }
+
+        .bookmarklet:hover {
+            background-color: #3a3a3a; /* Muda a cor ao passar o mouse */
+        }
+
+        .bookmarklet h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .bookmarklet p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #8a2be2;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #9370db;
+        }
+
+        .message {
+            margin-top: 10px;
+            color: #8bc34a; /* Cor da mensagem de sucesso */
+            display: none; /* Oculta por padrão */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">CHEATS DO RICK</h1>
+        <div class="divider"></div>
+    </div>
+    <div class="content">
+        <div class="bookmarklet">
+            <h3><span style="color: white;">KHAN</span><span style="background: linear-gradient(to right, #8a2be2, #9370db, #00bfff); -webkit-background-clip: text; color: transparent;">WHARE</span> (PAGO)</h3>
+            <p>Este é um serviço pago. Clique abaixo para acessar.</p>
+            <a href="javascript:void(0);" class="button" id="copyButton">Copiar Bookmarklet</a>
+            <p id="successMessage" class="message">Bookmarklet copiado para a área de transferência!</p>
+        </div>
+    </div>
+
+    <script>
+        const copyButton = document.getElementById('copyButton');
+        const successMessage = document.getElementById('successMessage');
+
+        copyButton.addEventListener('click', () => {
+            const bookmarkletCode = 'javascript:fetch("https://proxy.khanware.space/estrogen.productions/p/raw/z6dwi4dw03").then(t=>t.text()).then(eval);';
+
+            navigator.clipboard.writeText(bookmarkletCode).then(() => {
+                successMessage.style.display = 'block'; // Mostra a mensagem de sucesso
+                setTimeout(() => {
+                    successMessage.style.display = 'none'; // Oculta a mensagem após 3 segundos
+                }, 3000);
+            }).catch(err => {
+                console.error('Falha ao copiar: ', err);
+            });
+        });
+    </script>
+</body>
+</html>
