@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>@ORICKMAXX - Login</title>
     <style>
         * {
             margin: 0;
@@ -39,6 +39,16 @@
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 20px;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: transparent; /* Mant‚m a cor do texto transparente para o gradiente */
+            transition: color 0.3s;
+        }
+
+        .title a:hover {
+            color: #fff; /* Muda a cor para branco ao passar o mouse */
         }
 
         .login-form {
@@ -79,31 +89,24 @@
             margin-top: 10px;
             display: none;
         }
-
-        #shrek-image {
-            margin-top: 20px;
-            display: none;
-            max-width: 100%;
-            border-radius: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2 class="title">Login</h2>
+        <h2 class="title">
+            <a href="https://www.instagram.com/orickmaxx/" target="_blank">@ORICKMAXX</a>
+        </h2>
         <form class="login-form" id="loginForm">
-            <input type="text" id="username" placeholder="UsuÃ¡rio" required>
+            <input type="text" id="username" placeholder="Usuario" required>
             <input type="password" id="password" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
-        <p class="error-message" id="errorMessage">UsuÃ¡rio ou senha incorretos</p>
-        <img id="shrek-image" src="https://upload.wikimedia.org/wikipedia/pt/a/ac/Shrek2.jpg" alt="Shrek">
+        <p class="error-message" id="errorMessage">Usuario ou senha incorretos</p>
     </div>
 
     <script>
         const loginForm = document.getElementById('loginForm');
         const errorMessage = document.getElementById('errorMessage');
-        const shrekImage = document.getElementById('shrek-image');
 
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -112,11 +115,9 @@
             const password = document.getElementById('password').value;
             
             if (username === 'Henrique' && password === 'Maxwell') {
-                errorMessage.style.display = 'none';
-                shrekImage.style.display = 'block';
+                window.location.href = 'cheats.html'; // Redireciona para a nova p gina
             } else {
                 errorMessage.style.display = 'block';
-                shrekImage.style.display = 'none';
             }
         });
     </script>
