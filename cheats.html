@@ -257,21 +257,11 @@
             });
         });
 
-        // Copiar bookmarklet para KHANWARE 2.9
+        // Redirecionar para o site no botão KhanWare 2.9
         const copyButtonKhanWare = document.getElementById('copyButtonKhanWare');
-        const successMessageKhanWare = document.getElementById('successMessageKhanWare');
-
         copyButtonKhanWare.addEventListener('click', () => {
-            const bookmarkletCode = 'SEU_JAVASCRIPT_AQUI';  // <<=== Cole seu código aqui
-
-            navigator.clipboard.writeText(bookmarkletCode).then(() => {
-                successMessageKhanWare.style.display = 'block';  // Mostra a mensagem de sucesso
-                setTimeout(() => {
-                    successMessageKhanWare.style.display = 'none';  // Oculta a mensagem de sucesso após 3 segundos
-                }, 3000);
-            }).catch(err => {
-                console.error('Falha ao copiar: ', err);
-            });
+            // Redireciona o usuário para a URL especificada
+            window.location.href = 'https://raw.githubusercontent.com/orickmaxx/login-page/refs/heads/main/khanware.txt';
         });
 
         // Copiar bookmarklet para Bypass
