@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ORICKMAXX - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,17 +17,19 @@
         }
 
         body {
-            background-color: #000;
+            background-image: url('https://cdna.artstation.com/p/marketplace/presentation_assets/002/860/006/large/file.jpg?1689346749');
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
         }
 
         .login-container {
-            background-color: #1a1a1a;
+            background-color: rgba(26, 26, 26, 0.5); /* Fundo com mais transparência */
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
@@ -43,12 +46,12 @@
 
         .title a {
             text-decoration: none;
-            color: transparent; /* Mant�m a cor do texto transparente para o gradiente */
+            color: transparent;
             transition: color 0.3s;
         }
 
         .title a:hover {
-            color: #fff; /* Muda a cor para branco ao passar o mouse */
+            color: #fff;
         }
 
         .login-form {
@@ -63,6 +66,7 @@
             margin-bottom: 15px;
             border-radius: 5px;
             color: white;
+            font-size: 1rem;
         }
 
         .login-form input::placeholder {
@@ -97,11 +101,11 @@
             <a href="https://www.instagram.com/orickmaxx/" target="_blank">@ORICKMAXX</a>
         </h2>
         <form class="login-form" id="loginForm">
-            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="text" id="username" placeholder="Usuário" required>
             <input type="password" id="password" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
-        <p class="error-message" id="errorMessage">Usuario ou senha incorretos</p>
+        <p class="error-message" id="errorMessage">Usuário ou senha incorretos</p>
     </div>
 
     <script>
@@ -115,9 +119,9 @@
             const password = document.getElementById('password').value;
             
             if (username === 'orickmaxx' && password === '24042024') {
-                // Salvar um token de autentica�ao no localStorage
+                // Salvar um token de autenticação no localStorage
                 localStorage.setItem('authToken', 'your-token-here');
-                window.location.href = 'cheats.html'; // Redireciona para a nova p�gina
+                window.location.href = 'cheats.html'; // Redireciona para a nova página
             } else {
                 errorMessage.style.display = 'block';
             }
