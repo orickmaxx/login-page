@@ -115,6 +115,8 @@
             const password = document.getElementById('password').value;
             
             if (username === 'orickmaxx' && password === '24042024') {
+                // Salvar um token de autentica‡ao no localStorage
+                localStorage.setItem('authToken', 'your-token-here');
                 window.location.href = 'cheats.html'; // Redireciona para a nova p gina
             } else {
                 errorMessage.style.display = 'block';
