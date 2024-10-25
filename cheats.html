@@ -115,12 +115,12 @@
             border-radius: 6px;
             padding: 15px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-            width: 280px; /* Largura ajustada */
+            width: 280px;
             text-align: left;
             transition: background-color 0.3s;
-            margin: 10px; /* Espaço entre os bookmarklets */
-            min-height: 150px; /* Altura mínima para as caixas */
-            overflow: hidden; /* Para evitar que o conteúdo exceda */
+            margin: 10px;
+            min-height: 150px;
+            overflow: hidden;
         }
 
         .bookmarklet:hover {
@@ -158,14 +158,14 @@
         }
 
         .section {
-            display: none; /* Inicialmente oculta */
-            width: 100%; /* Para ocupar toda a largura disponível */
-            max-width: 320px; /* Largura máxima para manter o design */
-            margin: 0 auto; /* Centraliza as seções */
+            display: none;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
         }
 
         .active {
-            display: block; /* Mostra a seção ativa */
+            display: block;
         }
     </style>
 </head>
@@ -206,31 +206,25 @@
         </div>
 
         <div class="bookmarklet section" id="cms">
-            <h3>CMSP</h3>
-            <p>Para acessar o CHEAT do CMSP, clique no botão abaixo:</p>
-            <a href="https://cmspcheeto.squareweb.app/" target="_blank" class="button">Acessar CMSP</a>
+            <h3>CMSP (INATIVO)</h3>
+            <p>HACK do CMSP aqui.</p>
         </div>
 
         <div class="bookmarklet section" id="speak">
-            <h3>SPEAK (EM BREVE)</h3>
-            <p>Conteúdo do SPEAK aqui.</p>
+            <h3>SPEAK (INATIVO)</h3>
+            <p>HACK do SPEAK aqui.</p>
         </div>
     </div>
 
     <script>
-        // Função de verificação de login
         function isLoggedIn() {
-            // Verifique se o usuário está logado
-            // Por exemplo, verifique se há um token de autenticação no localStorage
             return localStorage.getItem('authToken') !== null;
         }
 
-        // Redirecionar para a página de login se não estiver logado
         if (!isLoggedIn()) {
             window.location.href = 'https://orickmaxx.github.io/login-page/';
         }
 
-        // Função para mostrar a seção correta ao clicar nas guias
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
 
@@ -239,12 +233,10 @@
                 event.preventDefault();
                 const targetId = link.getAttribute('data-target');
 
-                // Oculta todas as seções
                 sections.forEach(section => {
                     section.classList.remove('active');
                 });
 
-                // Mostra a seção correspondente
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.classList.add('active');
@@ -252,7 +244,6 @@
             });
         });
 
-        // Copiar bookmarklet para KHANWARE (PAGO)
         const copyButtonPago = document.getElementById('copyButtonPago');
         const successMessagePago = document.getElementById('successMessagePago');
 
@@ -269,14 +260,11 @@
             });
         });
 
-        // Redirecionar para o site no botão KhanWare 2.9
         const copyButtonKhanWare = document.getElementById('copyButtonKhanWare');
         copyButtonKhanWare.addEventListener('click', () => {
-            // Redireciona o usuário para a URL especificada
             window.location.href = 'https://raw.githubusercontent.com/orickmaxx/login-page/refs/heads/main/khanware.txt';
         });
 
-        // Copiar bookmarklet para Bypass
         const copyButtonBypass = document.getElementById('copyButtonBypass');
         const successMessageBypass = document.getElementById('successMessageBypass');
 
