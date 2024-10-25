@@ -42,7 +42,7 @@
             background-size: 400% 400%;
             -webkit-background-clip: text;
             color: transparent;
-            animation: gradientAnimation 7s ease-in-out infinite;
+            animation: gradientAnimation 5s ease-in-out infinite;
             margin-bottom: 20px;
         }
 
@@ -88,18 +88,20 @@
         }
 
         button {
-            background-color: #8a2be2;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
+            background: radial-gradient(circle at -20.71% 50%, #006de7 0%, #0069eb 8.33%, #0064ec 16.67%, #005eea 25%, #0057e5 33.33%, #004dde 41.67%, #4d42d4 50%, #7334c8 58.33%, #8d20ba 66.67%, #a100aa 75%, #b10099 83.33%, #bd0088 91.67%, #c50075 100%);
+            background-size: 400% 400%;
             color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
+            animation: gradientAnimation 5s ease-in-out infinite;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #9370db;
+            background-color: #4d42d4;
         }
 
         .error-message {
@@ -119,7 +121,7 @@
             <input type="password" id="password" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
-        <p class="error-message" id="errorMessage">Usu rio ou senha incorretos</p>
+        <p class="error-message" id="errorMessage">Usuario ou senha incorretos</p>
     </div>
 
     <script>
