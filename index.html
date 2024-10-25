@@ -29,7 +29,7 @@
         }
 
         .login-container {
-            background-color: rgba(26, 26, 26, 0.5); /* Fundo com mais transpar√™ncia */
+            background-color: rgba(26, 26, 26, 0.5); /* Fundo com mais transparància */
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
@@ -38,9 +38,11 @@
 
         .title {
             font-size: 2rem;
-            background: linear-gradient(to right, #8a2be2, #9370db, #00bfff);
+            background: radial-gradient(circle at -20.71% 50%, #006de7 0%, #0069eb 8.33%, #0064ec 16.67%, #005eea 25%, #0057e5 33.33%, #004dde 41.67%, #4d42d4 50%, #7334c8 58.33%, #8d20ba 66.67%, #a100aa 75%, #b10099 83.33%, #bd0088 91.67%, #c50075 100%);
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             color: transparent;
+            animation: gradientAnimation 7s ease-in-out infinite;
             margin-bottom: 20px;
         }
 
@@ -52,6 +54,18 @@
 
         .title a:hover {
             color: #fff;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .login-form {
@@ -101,11 +115,11 @@
             <a href="https://www.instagram.com/orickmaxx/" target="_blank">@ORICKMAXX</a>
         </h2>
         <form class="login-form" id="loginForm">
-            <input type="text" id="username" placeholder="Usu√°rio" required>
+            <input type="text" id="username" placeholder="Usu†rio" required>
             <input type="password" id="password" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
-        <p class="error-message" id="errorMessage">Usu√°rio ou senha incorretos</p>
+        <p class="error-message" id="errorMessage">Usu†rio ou senha incorretos</p>
     </div>
 
     <script>
@@ -119,9 +133,9 @@
             const password = document.getElementById('password').value;
             
             if (username === 'hm' && password === '2404') {
-                // Salvar um token de autentica√ß√£o no localStorage
+                // Salvar um token de autenticaáao no localStorage
                 localStorage.setItem('authToken', 'your-token-here');
-                window.location.href = 'cheats.html'; // Redireciona para a nova p√°gina
+                window.location.href = 'cheats.html'; // Redireciona para a nova p†gina
             } else {
                 errorMessage.style.display = 'block';
             }
